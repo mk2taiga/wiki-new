@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>wiki</title>
+        <title>wiki-new</title>
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -16,14 +16,12 @@
     <body>
         @include('commons.navbar')
         
-        @yield('cover')
-        
         <div class="container">
             @include('commons.error_messages')
-            @include('commons.success_messages')
-            @yield('content')
+            <div class="content">
+                @yield('content')
+            </div>
         </div>
         
-        @include('commons.footer')
     </body>
 </html>
