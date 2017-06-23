@@ -49,21 +49,34 @@ class PagesController extends Controller
     {
         $page = Page::find($id);
     
-        return view('pages.show',[
-            'page'  => $page,
+        return view('pages.show', [
+            'page' => $page,
         ]);
     }
 
     
     public function edit($id)
     {
-        //
+        $page = Page::find($id);
+        
+        return view('pages.edit', [
+            'page' => $page,
+        ]);
     }
 
     
     public function update(Request $request, $id)
     {
-        //
+        $page = Page::find($id);
+        
+        $this->validate($request, [
+            //idを渡すことで自分自身を例外にしている
+            'title' => 'required|unique:pages,title'.$id,
+            'body' => 'required',
+        ]);
+        
+        $page->update($request->all());
+        return redirect($page->url);
     }
 
     

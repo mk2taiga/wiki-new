@@ -6,7 +6,9 @@
         @if (count($pages) > 0)
             @foreach ($pages as $page)
                 <li>
-                    {!! link_to_route('pages.show', $page->title, ['id' => $page->id]) !!}
+                    <a href="{{ $page->url }}">
+                        {{ $page->title }}
+                    </a>
                 </li>
             @endforeach
         @endif
